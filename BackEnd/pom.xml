@@ -19,50 +19,29 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-<!--    <dependencies>-->
-<!--        -->
+    <dependencies>
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp &ndash;&gt;-->
 <!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-dependencies</artifactId>-->
-<!--            <type>pom</type>-->
-<!--            <scope>import</scope>-->
-<!--        </dependency>-->
-
-<!--&lt;!&ndash;        <dependency>&ndash;&gt;-->
-<!--&lt;!&ndash;            <groupId>org.springframework.kafka</groupId>&ndash;&gt;-->
-<!--&lt;!&ndash;            <artifactId>spring-kafka</artifactId>&ndash;&gt;-->
-<!--&lt;!&ndash;            <version>3.3.10</version>&ndash;&gt;-->
-<!--&lt;!&ndash;        </dependency>&ndash;&gt;-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.postgresql</groupId>-->
-<!--            <artifactId>postgresql</artifactId>-->
-<!--            <scope>runtime</scope>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.projectlombok</groupId>-->
-<!--            <artifactId>lombok</artifactId>-->
-<!--            <optional>true</optional>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.data</groupId>-->
-<!--            <artifactId>spring-data-jpa</artifactId>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>commons-dbcp</groupId>-->
-<!--            <artifactId>commons-dbcp</artifactId>-->
+<!--            <groupId>com.squareup.okhttp3</groupId>-->
+<!--            <artifactId>okhttp</artifactId>-->
+<!--            <version>5.3.0</version>-->
 <!--        </dependency>-->
 
 
-<!--        &lt;!&ndash;        <dependency>&ndash;&gt;-->
-<!--&lt;!&ndash;            <groupId>org.telegram</groupId>&ndash;&gt;-->
-<!--&lt;!&ndash;            <artifactId>telegrambots</artifactId>&ndash;&gt;-->
-<!--&lt;!&ndash;            <version>6.8.0</version>&ndash;&gt;-->
-<!--&lt;!&ndash;        </dependency>&ndash;&gt;-->
-<!--    </dependencies>-->
+        <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>4.11.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-math3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math3</artifactId>
+            <version>3.6.1</version>
+        </dependency>
+    </dependencies>
 
 
     <build>
