@@ -1,4 +1,10 @@
 package org.truskovski.store.dto;
 
-public record WeatherRequest() {
-}
+import java.io.Serializable;
+
+public record WeatherRequest(
+        Long userId,
+        Long chatId,
+        double latitude,
+        double longitude
+) implements Serializable {}

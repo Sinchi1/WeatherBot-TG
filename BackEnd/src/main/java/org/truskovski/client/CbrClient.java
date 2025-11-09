@@ -6,6 +6,7 @@ import okhttp3.Request;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
+import org.truskovski.store.dto.WeatherRequest;
 
 import java.io.IOException;
 
@@ -16,26 +17,20 @@ public class CbrClient {
     private final OkHttpClient okHttpClient;
 
     @Value("weather.api")
-    private String url;
+    private String baseUrl;
 
-    public String getWeatherForecastByCoordinates(float x, float y) throws IOException {
+    public String getWeatherForecastByCoordinates(WeatherRequest userRequest) throws IOException {
+        var url = baseUrl + "?latitude=" + userRequest.latitude() + "&longitude=" + userRequest.longitude();
         var request = new Request.Builder()
                 .url(url)
                 .build();
 
         try (var response = okHttpClient.newCall(request).execute()) {
             var responseBody = response.body();
-            if (responseBody == null){
-                // Здесь ещё кастом эксепшен (наверное)
-                return null;
+            if (responseBody == null || !response.isSuccessful()){
+                throw new  IOException("Api Error " + response.code());
             }
             return responseBody.string();
         }
-        // Добавить Chechked exception с api error
-         catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-
     }
 }

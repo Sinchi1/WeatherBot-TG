@@ -13,6 +13,4 @@ public class BackEndConfig {
         return  new OkHttpClient.Builder().build();
     }
 
-
-
 }
