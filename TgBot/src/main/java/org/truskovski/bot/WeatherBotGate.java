@@ -4,8 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import org.truskovski.bot.commandtypes.Command;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 @Component
 @Slf4j
@@ -34,6 +35,14 @@ public class WeatherBotGate extends TelegramLongPollingBot {
         }
         else{
             return;
+        }
+    }
+
+    private void SendMessage(String message, Long chatId) {
+        try {
+            execute(new SendMessage(chatId.toString(), message));
+        } catch (TelegramApiException e) {
+            throw new RuntimeException(e);
         }
     }
 
