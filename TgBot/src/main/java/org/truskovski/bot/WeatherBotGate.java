@@ -12,10 +12,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 @Slf4j
 public class WeatherBotGate extends TelegramLongPollingBot {
 
-    private final static String history = "/history";
-    private final static String getByPosition = "getByPosition";
-    private final static String getByLastPosition = "getByLast";
-    private final static String help = "help";
+    private
 
     public WeatherBotGate(@Value("${bot.token}") String token) {
         super(token);
@@ -26,12 +23,7 @@ public class WeatherBotGate extends TelegramLongPollingBot {
         if (update.hasMessage() && update.getMessage().hasText()) {
             var message = update.getMessage();
             var chatId = update.getMessage().getChatId();
-            switch (message.getText()) {
-                case (history) -> //
-                case (getByPosition) -> //
-                case (getByLastPosition) -> //
-                case (help) -> //
-            }
+
         }
         else{
             return;

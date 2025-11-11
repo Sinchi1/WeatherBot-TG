@@ -25,7 +25,7 @@ public class WeatherConsumer {
 
     @KafkaListener(topics = "weather-request")
     public void consume(WeatherRequest weatherRequest) throws IOException {
-        String apiResponse = cbrClient.getWeatherForecastByCoordinates(weatherRequest);
+        String apiResponse = cbrClient.getWeatherForecastByRequest(weatherRequest);
         JsonNode jsonNode = new ObjectMapper().readTree(apiResponse);
         double temp = jsonNode.path("hourly").path("temperature_2m").get(0).asDouble();
         String description = getWeatherDescription(jsonNode.path("hourly").path("weather_code").get(0).asInt());

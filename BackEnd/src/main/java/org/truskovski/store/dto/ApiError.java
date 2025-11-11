@@ -1,4 +1,4 @@
 package org.truskovski.store.dto;
 
-public record ApiError(int status, String message) {
+public record ApiError(String message) {
 }
