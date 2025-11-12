@@ -17,21 +17,11 @@ public class WeatherConsumer {
     @KafkaListener(topics = "weather-response")
     public void consume(WeatherResponse weatherResponse) {
         if (weatherResponse.errorMessage() == null){
-            try {
-                weatherBotGate.execute(new SendMessage(weatherResponse.chatId().toString(), weatherResponse.description()));
-            }
-            catch (TelegramApiException e) {
-                throw new RuntimeException(e);
-            }
+            weatherBotGate.sendMessage(weatherResponse.chatId(), weatherResponse.description());
         }
         else {
-            try {
-                weatherBotGate.execute(new SendMessage(weatherResponse.chatId().toString(),
-                        "Error occurred" + weatherResponse.errorMessage()));
-            }
-            catch (TelegramApiException e) {
-                throw new RuntimeException(e);
-            }
+            weatherBotGate.sendMessage(weatherResponse.chatId(),
+                    "Error occurred" + weatherResponse.errorMessage());
         }
 
     }

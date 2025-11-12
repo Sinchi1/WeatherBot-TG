@@ -1,7 +1,10 @@
 package org.truskovski.store.dto;
 
+import lombok.Builder;
+
 import java.io.Serializable;
 
+@Builder
 public record WeatherRequest(
         Long userId,
         Long chatId,

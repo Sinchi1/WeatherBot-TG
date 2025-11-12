@@ -23,7 +23,7 @@ public class WeatherConsumer {
     private final WeatherRepository weatherRepository;
     private final ObjectMapper objectMapper;
 
-    @KafkaListener(topics = "weather-request")
+    @KafkaListener(topics = "weather-requests")
     public void consume(WeatherRequest weatherRequest) throws IOException {
         String apiResponse = cbrClient.getWeatherForecastByRequest(weatherRequest);
         JsonNode jsonNode = new ObjectMapper().readTree(apiResponse);
