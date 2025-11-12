@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.truskovski.client.CbrClient;
 import org.truskovski.store.dto.ApiStatus;
+import org.truskovski.util.jsonparse.WeatherParser;
 
 import java.io.IOException;
 
@@ -21,13 +22,13 @@ public class WeatherController {
     private final CbrClient cbrClient;
 
     @GetMapping
-    public ResponseEntity<ApiStatus> getWeather(@RequestParam Double latitude, @RequestParam Double longitude) throws IOException {
-        String apiAnswer = "";
+    public ResponseEntity<?> getWeather(@RequestParam Double latitude, @RequestParam Double longitude) throws IOException {
+        WeatherParser.WeatherInfo apiAnswer = null;
         try {
             apiAnswer =  cbrClient.getWeatherForecastByCoordinates(latitude, longitude);
         } catch (IOException e) {
             throw new HttpResponseException(HttpStatus.I_AM_A_TEAPOT.value(), "Error occurred while getting the results of operation!");
         }
-        return ResponseEntity.ok().body(new ApiStatus(apiAnswer));
+        return ResponseEntity.ok().body(apiAnswer);
     }
 }
