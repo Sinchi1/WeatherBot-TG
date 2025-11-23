@@ -29,6 +29,7 @@ public class CbrClient {
         var url = baseUrl + "?latitude=" + userRequest.latitude()
                 + "&longitude=" + userRequest.longitude()
                 + "&hourly=temperature_2m"
+                + "&daily=weather_code"
                 + "&current_weather=true"
                 + "&timezone=Europe/Moscow";
 
