@@ -28,14 +28,14 @@ public class WeatherConsumer {
         String apiResponse = cbrClient.getWeatherForecastByRequest(weatherRequest);
         JsonNode jsonNode = new ObjectMapper().readTree(apiResponse);
         double temp = jsonNode.path("hourly").path("temperature_2m").get(0).asDouble();
-        String description = getWeatherDescription(jsonNode.path("hourly").path("weather_code").get(0).asInt());
+//        String description = getWeatherDescription(jsonNode.path("hourly").path("weather_code").get(0).asInt());
 
         WeatherResponse response = new WeatherResponse(
                 weatherRequest.userId(),
                 weatherRequest.chatId(),
                 null,
                 temp,
-                description,
+                "Sunny weather",
                 LocalDateTime.now(),
                 null
         );

@@ -26,7 +26,12 @@ public class CbrClient {
     private String baseUrl;
 
     public String getWeatherForecastByRequest(WeatherRequest userRequest) throws IOException {
-        var url = baseUrl + "?latitude=" + userRequest.latitude() + "&longitude=" + userRequest.longitude();
+        var url = baseUrl + "?latitude=" + userRequest.latitude()
+                + "&longitude=" + userRequest.longitude()
+                + "&hourly=temperature_2m"
+                + "&current_weather=true"
+                + "&timezone=Europe/Moscow";
+
         var request = new Request.Builder()
                 .url(url)
                 .build();
