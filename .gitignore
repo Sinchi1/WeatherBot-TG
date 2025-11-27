@@ -33,8 +33,8 @@ build/
 ### VS Code ###
 .vscode/
 
-TgBot/src/main/resources/application.yaml
-BackEnd/src/main/resources/application.yaml
+#TgBot/src/main/resources/application.yaml
+#BackEnd/src/main/resources/application.yaml
 TgBot/target
 BackEnd/target
 
