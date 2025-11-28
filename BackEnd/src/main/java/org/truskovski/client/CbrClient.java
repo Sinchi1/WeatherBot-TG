@@ -5,10 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.truskovski.store.dto.WeatherRequest;
 import org.truskovski.util.jsonparse.WeatherParser;
 
@@ -66,6 +63,5 @@ public class CbrClient {
             return weatherParser.parseWeather(responseBody.string());
         }
     }
-
 
 }
